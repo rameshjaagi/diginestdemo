@@ -1,14 +1,20 @@
-node {  
-    stage('Build') { 
-        echo "build stage executed"
-        // 
-    }
-    stage('Test') { 
-        echo "Test stage executed"
-        // 
-    }
-    stage('Deploy') { 
-        echo "Deploy stage executed"
-        // 
+pipeline { 
+    agent any 
+    stages {
+        stage('Build') { 
+            steps { 
+                echo "build stage"
+            }
+        }
+        stage('Test'){
+            steps {
+                echo "Test stage"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Deploy stage"
+            }
+        }
     }
 }
