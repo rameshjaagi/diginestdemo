@@ -7,8 +7,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo "build stage"
-                echo ${env.BUILD_NUMBER}
-                echo ${params.ENVIRONEMT}
+                printenv
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github-creds', url: 'https://github.com/rameshjaagi/diginestdemo.git']]])
             }
         }
