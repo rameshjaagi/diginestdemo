@@ -6,7 +6,6 @@ pipeline {
             script:
                - sonar-scan -Dsonar.projectKey=diginest
          }
-       }
         stage('Build') { 
             steps { 
                 buildName "# ${BUILD_NUMBER} Triggred on ${params.ENVIRONEMT}"
