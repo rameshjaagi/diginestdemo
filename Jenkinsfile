@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('SonarQube Analysis') {
             script:
-               - sonar-scan -Dsonar.projectKey=diginest"
+               - sonar-scan -Dsonar.projectKey=diginest
          }
        }
         stage('Build') { 
