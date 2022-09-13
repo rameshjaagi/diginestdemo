@@ -2,6 +2,12 @@ pipeline {
     agent any 
    
     stages {
+        stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=diginest"
+         }
+       }
         stage('Build') { 
             steps { 
                 buildName "# ${BUILD_NUMBER} Triggred on ${params.ENVIRONEMT}"
