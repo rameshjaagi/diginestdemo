@@ -3,9 +3,12 @@ pipeline {
    
     stages {
         stage('SonarQube Analysis') {
-            script:
-               - sonar-scanner -Dsonar.projectKey=diginest
-         }
+            steps {
+                withSonarQubeEnv('Sonarqube') {
+                 sh "${scannerHome}/bin/sonar-scanner"
+                }
+                }
+                }
         stage('Build') { 
             steps { 
                 buildName "# ${BUILD_NUMBER} Triggred on ${params.ENVIRONEMT}"
