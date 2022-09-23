@@ -5,7 +5,9 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('Sonarqube') {
-                 sh "${scannerHome}/bin/sonar-scanner"
+                withMaven(maven:'Maven 3.5') {
+                        sh 'mvn clean package sonar:sonar'
+                }
                 }
                 }
                 }
